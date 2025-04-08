@@ -1,3 +1,16 @@
+heres my html. can you remove all the pdf opening modal stuff <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Ana Lee - Managing Editor & Graphic Design Consultant</title> <link rel="styleshe
+
+pasted
+
+I'll help you remove all the PDF opening modal functionality from your HTML. Here's the modified version:
+
+
+HTML Without PDF Modal Functionality
+Code 
+
+
+can you give me the code starting at **
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -304,67 +317,27 @@
             margin-top: 3rem;
         }
 
-.portfolio-item {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    aspect-ratio: 4/3; /* This maintains a consistent rectangle shape */
-}
+        .portfolio-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            aspect-ratio: 4/3; /* This maintains a consistent rectangle shape */
+        }
 
         .portfolio-item:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-md);
         }
 
-.portfolio-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* This prevents distortion */
-    display: block;
-}
-/* PDF Modal Styles */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.9);
-}
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This prevents distortion */
+            display: block;
+        }
 
-.modal-content {
-  position: relative;
-  margin: auto;
-  padding: 20px;
-  width: 90%;
-  height: 90%;
-  top: 5%;
-}
-
-.close-modal {
-  position: absolute;
-  right: 25px;
-  top: 10px;
-  color: white;
-  font-size: 35px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.close-modal:hover {
-  color: var(--secondary);
-}
-
-#pdfViewer {
-  width: 100%;
-  height: 100%;
-  background: white;
-}
         .portfolio-overlay {
             position: absolute;
             bottom: 0;
@@ -702,16 +675,17 @@
             background-color: var(--secondary);
             transform: translateY(-3px);
         }
+        
         .portfolio-grid a {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-}
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
 
-.portfolio-item {
-    display: block;
-    height: 100%;
-}
+        .portfolio-item {
+            display: block;
+            height: 100%;
+        }
 
         .copyright {
             text-align: center;
@@ -942,7 +916,7 @@
         <p class="section-subtitle text-center">A selection of my recent projects across editing and design.</p>
 
         <div class="portfolio-grid">
-            <a href="#" class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/FAFSA-2-Full-Report.pdf'); return false;">
+            <a href="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/FAFSA-2-Full-Report.pdf" class="portfolio-item">
                 <img src="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/FAFSA-2-Full-Report.jpg" alt="Book Editing Project" class="portfolio-img">
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Non-Fiction Manuscript</h3>
@@ -950,7 +924,7 @@
                 </div>
             </a>
 
-            <a href="#" class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/Ghana_final_report.pdf'); return false;">
+            <a href="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/Ghana_final_report.pdf" class="portfolio-item">
                 <img src="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/Ghana_final_report.jpg" alt="Book Cover Design" class="portfolio-img">
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Historical Novel</h3>
@@ -958,7 +932,7 @@
                 </div>
             </a>
 
-            <a href="#" class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROFILES-brief-stunting-learning.pdf'); return false;">
+            <a href="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROFILES-brief-stunting-learning.pdf" class="portfolio-item">
                 <img src="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROFILES-brief-stunting-learning.jpg" alt="Brand Identity" class="portfolio-img">
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Startup Branding</h3>
@@ -966,7 +940,7 @@
                 </div>
             </a>
 
-            <a href="#" class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health PHC_2024_web.pdf'); return false;">
+            <a href="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health PHC_2024_web.pdf" class="portfolio-item">
                 <img src="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health PHC_2024_web.jpg" alt="Academic Journal" class="portfolio-img">
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Academic Journal</h3>
@@ -974,7 +948,7 @@
                 </div>
             </a>
 
-            <a href="#" class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health_Overview_2025_Revised_2.pdf'); return false;">
+            <a href="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health_Overview_2025_Revised_2.pdf" class="portfolio-item">
                 <img src="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health_Overview_2025_Revised_2.jpg" alt="Marketing Materials" class="portfolio-img">
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Marketing Campaign</h3>
@@ -982,7 +956,7 @@
                 </div>
             </a>
 
-            <a href="#" class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health_Overview_2025_Revised_2.pdf'); return false;">
+            <a href="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health_Overview_2025_Revised_2.pdf" class="portfolio-item">
                 <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Website Content" class="portfolio-img">
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Placeholder for another item</h3>
@@ -992,11 +966,6 @@
         </div>
     </div>
 </section>
-
-<div id="pdfModal" class="modal">
-    <span class="close-modal">&times;</span>
-    <iframe id="pdfViewer" class="modal-content" src="" frameborder="0"></iframe>
-</div>
     <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
