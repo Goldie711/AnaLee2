@@ -304,24 +304,26 @@
             margin-top: 3rem;
         }
 
-        .portfolio-item {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
+.portfolio-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    aspect-ratio: 4/3; /* This maintains a consistent rectangle shape */
+}
 
         .portfolio-item:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-md);
         }
 
-        .portfolio-img {
-            height: 250px;
-            object-fit: cover;
-            width: 100%;
-        }
+.portfolio-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This prevents distortion */
+    display: block;
+}
 
         .portfolio-overlay {
             position: absolute;
