@@ -324,7 +324,47 @@
     object-fit: cover; /* This prevents distortion */
     display: block;
 }
+/* PDF Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+}
 
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  width: 90%;
+  height: 90%;
+  top: 5%;
+}
+
+.close-modal {
+  position: absolute;
+  right: 25px;
+  top: 10px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.close-modal:hover {
+  color: var(--secondary);
+}
+
+#pdfViewer {
+  width: 100%;
+  height: 100%;
+  background: white;
+}
         .portfolio-overlay {
             position: absolute;
             bottom: 0;
@@ -901,14 +941,14 @@
         <h2 class="section-title text-center">Portfolio</h2>
         <p class="section-subtitle text-center">A selection of my recent projects across editing and design.</p>
 
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <a href="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/FAFSA-2-Full-Report.pdf" target="_blank">
-                    <img src="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/FAFSA-2-Full-Report.jpg" alt="Book Editing Project" class="portfolio-img">
-                    <div class="portfolio-overlay">
-                        <h3 class="portfolio-title">Non-Fiction Manuscript</h3>
-                        <p class="portfolio-category">Developmental Editing</p>
-                    </div>
+<div class="portfolio-grid">
+    <div class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/FAFSA-2-Full-Report.pdf')">
+        <img src="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/FAFSA-2-Full-Report.jpg" alt="Book Editing Project" class="portfolio-img">
+        <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Non-Fiction Manuscript</h3>
+            <p class="portfolio-category">Developmental Editing</p>
+        </div>
+    </div>
                 </a>
             </div>
 
@@ -1182,6 +1222,37 @@
     <button class="back-to-top">
         <i class="fas fa-chevron-up"></i>
     </button>
+    <!-- PDF Viewer Modal -->
+<div id="pdfModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <iframe id="pdfViewer" frameborder="0"></iframe>
+  </div>
+</div>
+    <script>
+// PDF Modal functionality
+function openPdfModal(pdfUrl) {
+  const modal = document.getElementById('pdfModal');
+  const pdfViewer = document.getElementById('pdfViewer');
+  
+  pdfViewer.src = pdfUrl;
+  modal.style.display = "block";
+  
+  // Close when clicking X
+  document.querySelector('.close-modal').onclick = function() {
+    modal.style.display = "none";
+    pdfViewer.src = '';
+  }
+  
+  // Close when clicking outside
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      pdfViewer.src = '';
+    }
+  }
+}
+</script>
 </body>
 </html>
 F
