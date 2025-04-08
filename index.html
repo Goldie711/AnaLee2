@@ -1225,17 +1225,12 @@
 <script>
 // PDF Modal functionality
 function openPdfModal(pdfUrl) {
-  const modal = document.getElementById('pdfModal');
-  const pdfViewer = document.getElementById('pdfViewer');
-  
-  pdfViewer.src = pdfUrl;
-  modal.style.display = "block";
-  
-  // Close when clicking X
-  document.querySelector('.close-modal').onclick = function() {
-    modal.style.display = "none";
-    pdfViewer.src = '';
-  }
+    console.log("openPdfModal called with URL:", pdfUrl);
+    const modal = document.getElementById('pdfModal');
+    const pdfViewer = document.getElementById('pdfViewer');
+    pdfViewer.src = pdfUrl;
+    modal.style.display = "block";
+}
   
   // Close when clicking outside
   window.onclick = function(event) {
