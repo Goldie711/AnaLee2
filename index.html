@@ -1,16 +1,3 @@
-heres my html. can you remove all the pdf opening modal stuff <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Ana Lee - Managing Editor & Graphic Design Consultant</title> <link rel="styleshe
-
-pasted
-
-I'll help you remove all the PDF opening modal functionality from your HTML. Here's the modified version:
-
-
-HTML Without PDF Modal Functionality
-Code 
-
-
-can you give me the code starting at **
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1184,37 +1171,5 @@ can you give me the code starting at **
     <button class="back-to-top">
         <i class="fas fa-chevron-up"></i>
     </button>
-
-<script>
-// PDF Modal functionality
-function openPdfModal(pdfUrl) {
-    console.log("openPdfModal called with URL:", pdfUrl);
-    const modal = document.getElementById('pdfModal');
-    const pdfViewer = document.getElementById('pdfViewer');
-    pdfViewer.src = pdfUrl;
-    modal.style.display = "block";
-}
-
-// Get the close button and add event listener
-const closeModal = document.querySelector('.close-modal');
-if (closeModal) {
-    closeModal.addEventListener('click', function() {
-        const modal = document.getElementById('pdfModal');
-        const pdfViewer = document.getElementById('pdfViewer');
-        modal.style.display = "none";
-        pdfViewer.src = '';
-    });
-}
-  
-// Close when clicking outside
-window.onclick = function(event) {
-    const modal = document.getElementById('pdfModal');
-    if (event.target == modal) {
-        const pdfViewer = document.getElementById('pdfViewer');
-        modal.style.display = "none";
-        pdfViewer.src = '';
-    }
-}
-</script>
 </body>
 </html>
