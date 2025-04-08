@@ -1215,28 +1215,34 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
+<script>
 // PDF Modal functionality
 function openPdfModal(pdfUrl) {
     console.log("openPdfModal called with URL:", pdfUrl);
     const modal = document.getElementById('pdfModal');
     const pdfViewer = document.getElementById('pdfViewer');
-    const closeBtn = document.querySelector('.close-modal');
-    
     pdfViewer.src = pdfUrl;
     modal.style.display = "block";
-    
-    // Close modal when clicking X
-    closeBtn.onclick = function() {
+}
+
+// Get the close button and add event listener
+const closeModal = document.querySelector('.close-modal');
+if (closeModal) {
+    closeModal.addEventListener('click', function() {
+        const modal = document.getElementById('pdfModal');
+        const pdfViewer = document.getElementById('pdfViewer');
         modal.style.display = "none";
         pdfViewer.src = '';
-    }
-    
-    // Close when clicking outside
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-            pdfViewer.src = '';
-        }
+    });
+}
+  
+// Close when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('pdfModal');
+    if (event.target == modal) {
+        const pdfViewer = document.getElementById('pdfViewer');
+        modal.style.display = "none";
+        pdfViewer.src = '';
     }
 }
 </script>
