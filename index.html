@@ -3,98 +3,803 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jane Doe - Managing Editor & Graphic Design Consultant</title>
+    <title>Ana Lee - Managing Editor & Graphic Design Consultant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary: #2a5d8a;
+            --primary-dark: #1e4566;
+            --secondary: #f4a261;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
         }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
         }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 10px;
-        }
-        nav ul li a {
-            color: #fff;
+
+        a {
             text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
         }
-        section {
-            padding: 2rem;
-            border-bottom: 1px solid #ddd;
+
+        ul {
+            list-style: none;
         }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
-        .hero {
-            background: linear-gradient(to right, #e0f7fa, #fff);
-            text-align: center;
-            padding: 5rem 2rem;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .services, .portfolio, .about, .testimonials, .blog, .contact {
+
+        .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1.5rem;
         }
-        .card {
-            border: 1px solid #ddd;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        .grid {
-            display: grid;
-            gap: 1rem;
-        }
-        .grid-cols-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        .grid-cols-3 {
-            grid-template-columns: repeat(3, 1fr);
-        }
+
         .btn {
             display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #0070f3;
-            color: #fff;
-            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .brand span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(42, 93, 138, 0.9), rgba(244, 162, 97, 0.8)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-list {
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+
+        .service-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .portfolio-img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-category {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* About */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .skills {
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary);
             border-radius: 4px;
         }
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #0070f3;
-            color: #0070f3;
+
+        /* Testimonials */
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            margin: 0 1rem;
+            text-align: center;
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            margin-top: 1.5rem;
+        }
+
+        .testimonial-role {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Blog */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .blog-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-excerpt {
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more i {
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .read-more i {
+            transform: translateX(3px);
+        }
+
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 93, 138, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Back to top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: var(--transition);
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div>
-                <a href="/" class="brand">Jane Doe | Editor & Designer</a>
-            </div>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="/" class="brand">Ana <span>Lee</span></a>
             <nav>
-                <ul>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#about">About</a></li>
@@ -102,139 +807,356 @@
                     <li><a href="#blog">Blog</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Crafting Words & Visuals That Captivate</h1>
-            <p>Professional editing and graphic design services to elevate your content and brand.</p>
-            <a href="#services" class="btn">Explore Services</a>
-            <a href="#portfolio" class="btn btn-outline">View Portfolio</a>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Crafting Words & Visuals That Captivate</h1>
+                <p class="hero-subtitle">Professional editing and graphic design services to elevate your content and brand.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Explore Services</a>
+                    <a href="#portfolio" class="btn btn-outline">View Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="services" class="services">
-            <h2>Services</h2>
-            <p>Comprehensive editing and design services tailored to your specific needs.</p>
-            <div class="grid grid-cols-2">
-                <div class="card">
-                    <h3>Editing Services</h3>
-                    <ul>
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <h2 class="section-title text-center">Services</h2>
+            <p class="section-subtitle text-center">Comprehensive editing and design services tailored to your specific needs.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3 class="service-title">Editing Services</h3>
+                    <p>Professional editing services to refine and polish your content.</p>
+                    <ul class="service-list">
                         <li>Developmental Editing</li>
                         <li>Copy Editing</li>
                         <li>Proofreading</li>
                         <li>Content Writing</li>
+                        <li>Manuscript Evaluation</li>
                     </ul>
                 </div>
-                <div class="card">
-                    <h3>Design Services</h3>
-                    <ul>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="service-title">Design Services</h3>
+                    <p>Creative design solutions to bring your vision to life.</p>
+                    <ul class="service-list">
                         <li>Brand Identity</li>
                         <li>Print Design</li>
                         <li>Digital Design</li>
                         <li>Illustration</li>
+                        <li>Book Cover Design</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 class="service-title">Consulting</h3>
+                    <p>Expert guidance to help you achieve your creative goals.</p>
+                    <ul class="service-list">
+                        <li>Content Strategy</li>
+                        <li>Brand Development</li>
+                        <li>Publishing Guidance</li>
+                        <li>Creative Direction</li>
+                        <li>Workflow Optimization</li>
                     </ul>
                 </div>
             </div>
-            <a href="#contact" class="btn">Request a Quote</a>
-        </section>
+        </div>
+    </section>
 
-        <section id="portfolio" class="portfolio">
-            <h2>Portfolio</h2>
-            <p>A selection of my recent projects across editing and design.</p>
-            <div class="grid grid-cols-3">
-                <div class="card">
-                    <img src="https://via.placeholder.com/400x300" alt="Editing Project 1">
-                    <h3>Editing Project 1</h3>
-                    <p>Developmental editing for a non-fiction manuscript.</p>
+    <!-- Portfolio Section -->
+    <section class="section bg-light" id="portfolio">
+        <div class="container">
+            <h2 class="section-title text-center">Portfolio</h2>
+            <p class="section-subtitle text-center">A selection of my recent projects across editing and design.</p>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Book Editing Project" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Non-Fiction Manuscript</h3>
+                        <p class="portfolio-category">Developmental Editing</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/400x300" alt="Design Project 1">
-                    <h3>Design Project 1</h3>
-                    <p>Brand identity design for a startup.</p>
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1173&q=80" alt="Book Cover Design" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Historical Novel</h3>
+                        <p class="portfolio-category">Book Cover Design</p>
+                    </div>
                 </div>
-                <!-- Add more projects as needed -->
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Brand Identity" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Startup Branding</h3>
+                        <p class="portfolio-category">Brand Identity</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80" alt="Academic Journal" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Academic Journal</h3>
+                        <p class="portfolio-category">Copy Editing</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1136&q=80" alt="Marketing Materials" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Marketing Campaign</h3>
+                        <p class="portfolio-category">Print & Digital Design</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Website Content" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Website Content</h3>
+                        <p class="portfolio-category">Content Writing & Editing</p>
+                    </div>
+                </div>
             </div>
-            <a href="#contact" class="btn btn-outline">Request a Custom Project</a>
-        </section>
+        </div>
+    </section>
 
-        <section id="about" class="about">
-            <h2>About Me</h2>
-            <p>With over 10 years of experience in publishing and design, I help clients transform their ideas into polished, professional content.</p>
-            <img src="https://via.placeholder.com/500x600" alt="Professional headshot">
-            <p>I began my career at a major publishing house, where I honed my skills in developmental editing, copy editing, and proofreading across various genres.</p>
-            <a href="#contact" class="btn">Get in Touch</a>
-        </section>
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-img-container">
+                    <img src="https://github.com/Goldie711/AnaLee2/blob/main/About.jpg" alt="Ana Lee" class="about-img">
+                </div>
+                <div class="about-content">
+                    <h2 class="section-title">About Me</h2>
+                    <h3>Professional Editor & Designer with 10+ Years Experience</h3>
+                    <p>I'm Ana Lee, a passionate editor and designer dedicated to helping clients transform their ideas into polished, professional content that resonates with their audience.</p>
+                    <p>My journey began at a major publishing house, where I spent 5 years honing my skills in developmental editing, copy editing, and proofreading across various genres. This experience gave me a deep understanding of the publishing process and what makes content truly shine.</p>
+                    <p>After discovering my love for visual storytelling, I expanded into graphic design, completing formal training at the School of Visual Arts. Now I combine these two passions to offer comprehensive services that address both the content and visual presentation of your project.</p>
 
-        <section id="testimonials" class="testimonials">
-            <h2>Client Testimonials</h2>
-            <p>What clients say about working with me.</p>
-            <div class="grid grid-cols-2">
-                <div class="card">
-                    <p>"Jane's developmental editing transformed my manuscript."</p>
-                    <p>- Sarah Johnson, Author</p>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Editing</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Design</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Content Strategy</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 2rem;">Get in Touch</a>
                 </div>
-                <div class="card">
-                    <p>"Working with Jane on our brand refresh was a game-changer."</p>
-                    <p>- Michael Chen, Marketing Director</p>
-                </div>
-                <!-- Add more testimonials as needed -->
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="blog" class="blog">
-            <h2>Blog & Insights</h2>
-            <p>Thoughts and tips on editing, design, and the creative process.</p>
-            <div class="grid grid-cols-3">
-                <div class="card">
-                    <img src="https://via.placeholder.com/400x225" alt="Blog Post 1">
-                    <h3>The Art of Developmental Editing</h3>
-                    <p>Explore how developmental editing can transform a manuscript.</p>
-                    <a href="#" class="btn btn-outline">Read More</a>
+    <!-- Testimonials Section -->
+    <section class="section bg-light" id="testimonials">
+        <div class="container">
+            <h2 class="section-title text-center">Client Testimonials</h2>
+            <p class="section-subtitle text-center">What clients say about working with me.</p>
+
+            <div class="testimonials-container">
+                <div class="testimonial active">
+                    <p class="testimonial-text">Ana's developmental editing transformed my manuscript from a rough draft into a publishable work. Her insights into character development and narrative structure were invaluable, and her attention to detail was exceptional.</p>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-role">Author, "The Silent Echo"</div>
                 </div>
-                <!-- Add more blog posts as needed -->
+
+                <div class="testimonial">
+                    <p class="testimonial-text">Working with Ana on our brand refresh was a game-changer for our business. She understood our vision immediately and delivered designs that perfectly captured our company's essence while appealing to our target audience.</p>
+                    <div class="testimonial-author">Michael Chen</div>
+                    <div class="testimonial-role">Marketing Director, TechSolutions Inc.</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">As a first-time author, I was nervous about the editing process, but Ana made it painless and even enjoyable. Her feedback was constructive and thoughtful, and she respected my voice while helping me improve my writing.</p>
+                    <div class="testimonial-author">Emily Rodriguez</div>
+                    <div class="testimonial-role">Author, "Whispers in the Dark"</div>
+                </div>
+
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active" data-index="0"></div>
+                    <div class="testimonial-dot" data-index="1"></div>
+                    <div class="testimonial-dot" data-index="2"></div>
+                </div>
             </div>
-            <a href="#" class="btn btn-outline">View All Articles</a>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="contact">
-            <h2>Get in Touch</h2>
-            <p>Ready to start your project? Contact me for a consultation.</p>
-            <div class="grid grid-cols-2">
-                <div>
-                    <p><strong>Email:</strong> jane.doe@example.com</p>
-                    <p><strong>Phone:</strong> (555) 123-4567</p>
-                    <p><strong>Location:</strong> New York, NY</p>
-                    <p><strong>Office Hours:</strong> Monday - Friday: 9am - 5pm EST</p>
+    <!-- Blog Section -->
+    <section class="section" id="blog">
+        <div class="container">
+            <h2 class="section-title text-center">Blog & Insights</h2>
+            <p class="section-subtitle text-center">Thoughts and tips on editing, design, and the creative process.</p>
+
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1073&q=80" alt="Developmental Editing" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> June 15, 2023</span>
+                            <span><i class="far fa-folder"></i> Editing</span>
+                        </div>
+                        <h3 class="blog-title">The Art of Developmental Editing</h3>
+                        <p class="blog-excerpt">Explore how developmental editing can transform a manuscript by focusing on big-picture elements like structure, pacing, and character development.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
-                <div>
+
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Book Cover Design" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> May 2, 2023</span>
+                            <span><i class="far fa-folder"></i> Design</span>
+                        </div>
+                        <h3 class="blog-title">What Makes a Great Book Cover?</h3>
+                        <p class="blog-excerpt">Discover the key elements of effective book cover design and how to create covers that grab attention and accurately represent your content.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title text-center">Contact</h2>
+            <p class="section-subtitle text-center">Get in touch with me to discuss your project or request a quote.</p>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>123 Main Street, Anytown, USA</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>ana.lee@example.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>(123) 456-7890</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
                     <form>
-                        <div>
-                            <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="Your name">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" class="form-control" required>
                         </div>
-                        <div>
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Your email">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" required>
                         </div>
-                        <div>
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" placeholder="Project inquiry">
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
                         </div>
-                        <div>
-                            <label for="message">Message</label>
-                            <textarea id="message" placeholder="Tell me about your project"></textarea>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Send Message</button>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Jane Doe. All rights reserved.</p>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Ana Lee</h3>
+                <p>Managing Editor & Graphic Design Consultant</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Follow Me</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Ana Lee. All Rights Reserved.</p>
+        </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 </body>
 </html>
+F
