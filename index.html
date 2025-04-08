@@ -1214,31 +1214,30 @@
     <button class="back-to-top">
         <i class="fas fa-chevron-up"></i>
     </button>
-    <!-- PDF Viewer Modal -->
-<div id="pdfModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <iframe id="pdfViewer" frameborder="0"></iframe>
-  </div>
-</div>
 
-<script>
 // PDF Modal functionality
 function openPdfModal(pdfUrl) {
     console.log("openPdfModal called with URL:", pdfUrl);
     const modal = document.getElementById('pdfModal');
     const pdfViewer = document.getElementById('pdfViewer');
+    const closeBtn = document.querySelector('.close-modal');
+    
     pdfViewer.src = pdfUrl;
     modal.style.display = "block";
-}
-  
-  // Close when clicking outside
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-      pdfViewer.src = '';
+    
+    // Close modal when clicking X
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+        pdfViewer.src = '';
     }
-  }
+    
+    // Close when clicking outside
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            pdfViewer.src = '';
+        }
+    }
 }
 </script>
 </body>
