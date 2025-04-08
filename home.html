@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jane Doe - Managing Editor & Graphic Design Consultant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        section {
+            padding: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .hero {
+            background: linear-gradient(to right, #e0f7fa, #fff);
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .services, .portfolio, .about, .testimonials, .blog, .contact {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .grid {
+            display: grid;
+            gap: 1rem;
+        }
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #0070f3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #0070f3;
+            color: #0070f3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div>
+                <a href="/" class="brand">Jane Doe | Editor & Designer</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Crafting Words & Visuals That Captivate</h1>
+            <p>Professional editing and graphic design services to elevate your content and brand.</p>
+            <a href="#services" class="btn">Explore Services</a>
+            <a href="#portfolio" class="btn btn-outline">View Portfolio</a>
+        </section>
+
+        <section id="services" class="services">
+            <h2>Services</h2>
+            <p>Comprehensive editing and design services tailored to your specific needs.</p>
+            <div class="grid grid-cols-2">
+                <div class="card">
+                    <h3>Editing Services</h3>
+                    <ul>
+                        <li>Developmental Editing</li>
+                        <li>Copy Editing</li>
+                        <li>Proofreading</li>
+                        <li>Content Writing</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Design Services</h3>
+                    <ul>
+                        <li>Brand Identity</li>
+                        <li>Print Design</li>
+                        <li>Digital Design</li>
+                        <li>Illustration</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="#contact" class="btn">Request a Quote</a>
+        </section>
+
+        <section id="portfolio" class="portfolio">
+            <h2>Portfolio</h2>
+            <p>A selection of my recent projects across editing and design.</p>
+            <div class="grid grid-cols-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300" alt="Editing Project 1">
+                    <h3>Editing Project 1</h3>
+                    <p>Developmental editing for a non-fiction manuscript.</p>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x300" alt="Design Project 1">
+                    <h3>Design Project 1</h3>
+                    <p>Brand identity design for a startup.</p>
+                </div>
+                <!-- Add more projects as needed -->
+            </div>
+            <a href="#contact" class="btn btn-outline">Request a Custom Project</a>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <p>With over 10 years of experience in publishing and design, I help clients transform their ideas into polished, professional content.</p>
+            <img src="https://via.placeholder.com/500x600" alt="Professional headshot">
+            <p>I began my career at a major publishing house, where I honed my skills in developmental editing, copy editing, and proofreading across various genres.</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <h2>Client Testimonials</h2>
+            <p>What clients say about working with me.</p>
+            <div class="grid grid-cols-2">
+                <div class="card">
+                    <p>"Jane's developmental editing transformed my manuscript."</p>
+                    <p>- Sarah Johnson, Author</p>
+                </div>
+                <div class="card">
+                    <p>"Working with Jane on our brand refresh was a game-changer."</p>
+                    <p>- Michael Chen, Marketing Director</p>
+                </div>
+                <!-- Add more testimonials as needed -->
+            </div>
+        </section>
+
+        <section id="blog" class="blog">
+            <h2>Blog & Insights</h2>
+            <p>Thoughts and tips on editing, design, and the creative process.</p>
+            <div class="grid grid-cols-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/400x225" alt="Blog Post 1">
+                    <h3>The Art of Developmental Editing</h3>
+                    <p>Explore how developmental editing can transform a manuscript.</p>
+                    <a href="#" class="btn btn-outline">Read More</a>
+                </div>
+                <!-- Add more blog posts as needed -->
+            </div>
+            <a href="#" class="btn btn-outline">View All Articles</a>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Get in Touch</h2>
+            <p>Ready to start your project? Contact me for a consultation.</p>
+            <div class="grid grid-cols-2">
+                <div>
+                    <p><strong>Email:</strong> jane.doe@example.com</p>
+                    <p><strong>Phone:</strong> (555) 123-4567</p>
+                    <p><strong>Location:</strong> New York, NY</p>
+                    <p><strong>Office Hours:</strong> Monday - Friday: 9am - 5pm EST</p>
+                </div>
+                <div>
+                    <form>
+                        <div>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Your name">
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Your email">
+                        </div>
+                        <div>
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="Project inquiry">
+                        </div>
+                        <div>
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Tell me about your project"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Jane Doe. All rights reserved.</p>
+    </footer>
+</body>
+</html>
