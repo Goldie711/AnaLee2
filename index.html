@@ -936,64 +936,67 @@
     </section>
 
     <!-- Portfolio Section -->
-   <!-- Portfolio Section -->
-<section class="section bg-light" id="portfolio">
+   <section class="section bg-light" id="portfolio">
     <div class="container">
         <h2 class="section-title text-center">Portfolio</h2>
         <p class="section-subtitle text-center">A selection of my recent projects across editing and design.</p>
 
         <div class="portfolio-grid">
-            <div class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/FAFSA-2-Full-Report.pdf')">
+            <a href="#" class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/FAFSA-2-Full-Report.pdf'); return false;">
                 <img src="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/FAFSA-2-Full-Report.jpg" alt="Book Editing Project" class="portfolio-img">
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Non-Fiction Manuscript</h3>
                     <p class="portfolio-category">Developmental Editing</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/Ghana_final_report.pdf')">
+            <a href="#" class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/Ghana_final_report.pdf'); return false;">
                 <img src="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/Ghana_final_report.jpg" alt="Book Cover Design" class="portfolio-img">
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Historical Novel</h3>
                     <p class="portfolio-category">Book Cover Design</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROFILES-brief-stunting-learning.pdf')">
+            <a href="#" class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROFILES-brief-stunting-learning.pdf'); return false;">
                 <img src="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROFILES-brief-stunting-learning.jpg" alt="Brand Identity" class="portfolio-img">
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Startup Branding</h3>
                     <p class="portfolio-category">Brand Identity</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health PHC_2024_web.pdf')">
+            <a href="#" class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health PHC_2024_web.pdf'); return false;">
                 <img src="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health PHC_2024_web.jpg" alt="Academic Journal" class="portfolio-img">
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Academic Journal</h3>
                     <p class="portfolio-category">Copy Editing</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health_Overview_2025_Revised_2.pdf')">
+            <a href="#" class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health_Overview_2025_Revised_2.pdf'); return false;">
                 <img src="https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health_Overview_2025_Revised_2.jpg" alt="Marketing Materials" class="portfolio-img">
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Marketing Campaign</h3>
                     <p class="portfolio-category">Print & Digital Design</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health_Overview_2025_Revised_2.pdf')">
+            <a href="#" class="portfolio-item" onclick="openPdfModal('https://raw.githubusercontent.com/Goldie711/AnaLee2/main/PROPEL Health_Overview_2025_Revised_2.pdf'); return false;">
                 <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Website Content" class="portfolio-img">
                 <div class="portfolio-overlay">
                     <h3 class="portfolio-title">Placeholder for another item</h3>
                     <p class="portfolio-category">Content Writing & Editing</p>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </section>
 
+<div id="pdfModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <iframe id="pdfViewer" class="modal-content" src="" frameborder="0"></iframe>
+</div>
     <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
